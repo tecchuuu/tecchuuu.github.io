@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitti Treevichien — Portfolio</title>
+  <meta name="description" content="Portfolio of Kitti Treevichien, Computer Science student at Bangkok University focusing on cybersecurity and AI." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .snap-row > * { scroll-snap-align: start; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+      <a href="#home" class="flex items-center gap-2 font-bold text-slate-900">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-teal-700 text-white font-mono text-sm">KT</span>
+        <span class="hidden sm:inline">Kitti Treevichien</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <li><a href="#about" class="hover:text-teal-700">About</a></li>
+        <li><a href="#skills" class="hover:text-teal-700">Skills</a></li>
+        <li><a href="#projects" class="hover:text-teal-700">Projects</a></li>
+        <li><a href="#certifications" class="hover:text-teal-700">Certifications</a></li>
+        <li><a href="#activities" class="hover:text-teal-700">Activities</a></li>
+        <li><a href="#contact" class="text-teal-700 hover:text-teal-800">Contact</a></li>
+      </ul>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-100" aria-label="Open menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
+      <ul class="px-4 py-3 space-y-1 text-sm font-medium">
+        <li><a href="#about" class="block px-3 py-2 rounded-lg hover:bg-slate-100">About</a></li>
+        <li><a href="#skills" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Skills</a></li>
+        <li><a href="#projects" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Projects</a></li>
+        <li><a href="#certifications" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Certifications</a></li>
+        <li><a href="#activities" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Activities</a></li>
+        <li><a href="#contact" class="block px-3 py-2 rounded-lg hover:bg-slate-100 text-teal-700">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ============ HOME / HERO ============ -->
+  <section id="home" class="max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-16 sm:pt-20 sm:pb-24">
+    <div class="grid md:grid-cols-[1fr_auto] gap-10 items-center">
+      <div>
+        <p class="font-mono text-sm text-teal-700 mb-3">// hello, i'm</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Kitti Treevichien</h1>
+        <p class="mt-3 text-lg sm:text-xl font-medium text-slate-600">
+          Computer Science student focusing on <span class="text-teal-700 font-semibold">Cybersecurity</span> &amp; AI
+        </p>
+        <p class="mt-5 max-w-xl text-slate-600 leading-relaxed">
+          Fourth-year Computer Science student at Bangkok University with a strong interest in
+          offensive security, CTF competitions, and applied AI. I enjoy learning by doing —
+          from TryHackMe labs and CTF bootcamps to AWS machine learning coursework.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="#certifications" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-700 text-white text-sm font-semibold hover:bg-teal-800 transition">
+            View certifications
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4-4 4M21 12H3"/></svg>
+          </a>
+          <a href="#contact" class="inline-flex items-center px-5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold text-slate-700 hover:border-teal-700 hover:text-teal-700 transition">Get in touch</a>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-slate-500">
+          <a href="https://github.com/tecchuuu" target="_blank" rel="noopener" aria-label="GitHub profile" class="hover:text-teal-700 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.15c0 .3.21.66.8.55A11.51 11.51 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/kitti-treevichien-983811387/" target="_blank" rel="noopener" aria-label="LinkedIn profile" class="hover:text-teal-700 transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </a>
+          <button type="button" id="emailCopy" data-email="tecchu05124@gmail.com" aria-label="Copy email address"
+            class="group/email inline-flex items-center gap-0 hover:gap-2 text-slate-500 hover:text-teal-700 transition-all">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span class="max-w-0 overflow-hidden whitespace-nowrap font-mono text-sm group-hover/email:max-w-xs transition-all duration-300">
+              <span id="emailText">tecchu05124@gmail.com</span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <!-- TODO: replace this monogram block with a real photo:
+           <img src="assets/img/profile.jpg" alt="Kitti Treevichien" class="w-44 h-44 sm:w-56 sm:h-56 rounded-2xl object-cover shadow-lg"> -->
+      <div class="justify-self-start md:justify-self-end">
+        <div class="w-44 h-44 sm:w-56 sm:h-56 rounded-2xl bg-gradient-to-br from-teal-700 to-slate-800 shadow-lg flex items-center justify-center">
+          <span class="font-mono text-6xl sm:text-7xl font-semibold text-white/90">KT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="bg-white border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <p class="font-mono text-sm text-teal-700 mb-2">// about me</p>
+      <h2 class="text-3xl font-bold text-slate-900 mb-8">About</h2>
+      <div class="grid md:grid-cols-5 gap-8">
+        <div class="md:col-span-3 space-y-4 text-slate-600 leading-relaxed">
+          <p>
+            I'm a Computer Science student at Bangkok University, currently between my third and
+            fourth year. My main focus is cybersecurity — I've completed foundational tracks on
+            TryHackMe, trained at NCSA CTF bootcamps (both online and onsite), and competed in a
+            CTF hosted by my school.
+          </p>
+          <p>
+            Alongside security, I've built a foundation in AI and machine learning through
+            AWS Academy coursework (ML foundations, NLP, and generative AI) and Thailand Digital
+            Government Academy programs.
+          </p>
+          <!-- TODO: add 1-2 more personal sentences here if you want (what you're looking for, interests, etc.) -->
+        </div>
+        <div class="md:col-span-2">
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h3 class="font-semibold text-slate-900 flex items-center gap-2">
+              <svg class="w-5 h-5 text-teal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v7m-7-4v-6"/></svg>
+              Education
+            </h3>
+            <div class="mt-4 text-sm space-y-1.5">
+              <p class="font-semibold text-slate-800">B.Sc. Computer Science</p>
+              <p class="text-slate-600">School of Information Technology and Innovation</p>
+              <p class="text-slate-600">Bangkok University</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">4th year · expected graduation 2027</p>
+              <!-- TODO: confirm faculty name + graduation year -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <p class="font-mono text-sm text-teal-700 mb-2">// technical skills</p>
+    <h2 class="text-3xl font-bold text-slate-900 mb-8">Skills</h2>
+    <!-- No self-assessed proficiency labels by design; only official levels (CEFR) are shown. -->
+    <div class="grid sm:grid-cols-2 gap-5">
+
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h3 class="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-teal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          Cybersecurity
+        </h3>
+        <ul class="space-y-2 text-sm text-slate-700 list-disc list-inside marker:text-teal-700">
+          <li>Kali Linux, Ubuntu, Linux Mint</li>
+          <li>Nmap, Burp Suite, Wireshark</li>
+          <li>Metasploit, John the Ripper, hashcat</li>
+          <li>VirtualBox, VMware, Hyper-V</li>
+          <li>TryHackMe</li>
+        </ul>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h3 class="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-teal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          Programming
+        </h3>
+        <ul class="space-y-2 text-sm text-slate-700 list-disc list-inside marker:text-teal-700">
+          <li>Python</li>
+          <li>TypeScript / JavaScript</li>
+          <li>React, Tailwind CSS</li>
+          <li>REST APIs — Elysia, Prisma</li>
+          <li>MS SQL, SQLite</li>
+          <li>Docker, Git &amp; GitHub, VS Code</li>
+          <li>AI-assisted development</li>
+        </ul>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h3 class="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-teal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+          Data &amp; AI
+        </h3>
+        <ul class="space-y-2 text-sm text-slate-700 list-disc list-inside marker:text-teal-700">
+          <li>pandas, scikit-learn</li>
+          <li>Power BI, RapidMiner</li>
+          <li>Machine learning, NLP</li>
+          <li>Generative AI</li>
+        </ul>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h3 class="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-teal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+          Languages
+        </h3>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-center justify-between gap-2"><span>Thai</span><span class="shrink-0 font-mono text-xs px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200">Native</span></li>
+          <li class="flex items-center justify-between gap-2"><span>English — Speexx certified</span><span class="shrink-0 font-mono text-xs px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200">CEFR C1.2</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="bg-white border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <p class="font-mono text-sm text-teal-700 mb-2">// selected work</p>
+      <h2 class="text-3xl font-bold text-slate-900 mb-8">Projects</h2>
+      <div class="space-y-5">
+
+        <!-- CS497 — Featured senior project -->
+        <article class="rounded-2xl border border-teal-200 bg-gradient-to-br from-teal-50/60 to-white p-6 sm:p-8 ring-1 ring-teal-100">
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <span class="font-mono text-xs px-2 py-0.5 rounded-full bg-teal-700 text-white">Featured — Senior Project</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">In development</span>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 items-start">
+            <div>
+              <h3 class="font-bold text-slate-900 text-xl">AI-Enhanced EDR/XDR</h3>
+              <p class="font-mono text-xs text-slate-500 mt-1">CS497 Computer Science Project I</p>
+              <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+                An AI-driven endpoint detection &amp; response / extended detection &amp; response platform for cloud
+                infrastructure (built around SIAM AI Cloud). It ingests endpoint logs and telemetry with
+                <span class="font-medium text-slate-800">Wazuh</span>, streams them in real time through
+                <span class="font-medium text-slate-800">Apache Kafka</span>, and runs GPU-accelerated AI analysis on
+                <span class="font-medium text-slate-800">NVIDIA Morpheus</span> — anomaly detection and fingerprinting to
+                catch threats that rule-based tools miss, including zero-day attacks.
+              </p>
+              <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                Detections trigger automated responses (block IP, isolate host) and surface on a real-time SOC dashboard,
+                reducing analyst workload while supporting big-data-scale security monitoring.
+              </p>
+              <p class="mt-3 text-sm text-slate-600 leading-relaxed"><span class="font-semibold text-slate-800">My role (in progress):</span> Building the detection pipeline hands-on. So far I've set up the environment and core detection stack, and configured it to capture every event — not just rule-based alerts — so the AI can analyse what signature rules miss. I also built a working anomaly-detection model that flagged unusual login activity at a ~1% false-positive rate, showing the AI catches deviations rule-based detection misses. Next up: running it on real captured data and wiring up the streaming pipeline.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Wazuh</span>
+                <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Apache Kafka</span>
+                <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">NVIDIA Morpheus</span>
+                <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Python</span>
+                <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Docker</span>
+              </div>
+            </div>
+            <button type="button" class="project-shot group rounded-xl border border-slate-200 bg-white overflow-hidden w-full"
+                    data-full="assets/img/projects/cs497-edr-xdr-poster.jpg"
+                    data-caption="AI-Enhanced EDR/XDR — CS497 senior project poster (team members redacted)"
+                    aria-label="View the project poster">
+              <img src="assets/img/projects/thumbs/cs497-edr-xdr-poster.jpg" alt="AI-Enhanced EDR/XDR project poster: architecture and tech stack" loading="lazy" class="w-full h-auto group-hover:scale-[1.02] transition-transform" />
+            </button>
+          </div>
+        </article>
+
+        <!-- CS471 Pentest Report -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <span class="font-mono text-xs px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200">Security Assessment</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-xl">Network Penetration Testing &amp; Security Assessment</h3>
+          <p class="font-mono text-xs text-slate-500 mt-1">CS471 Ethical Hacking &amp; Penetration Testing</p>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+            A full-scope penetration test against four lab machines, delivered as a 66-page professional
+            assessment report. The engagement followed a two-phase methodology — Nessus vulnerability
+            assessment to enumerate weaknesses, then hands-on exploitation to validate them — with every
+            finding ranked by severity and paired with proof-of-concept evidence and prioritized remediation
+            guidance (immediate, short-term, and long-term).
+          </p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+            <span class="font-semibold text-slate-800">My role:</span> I authored and formatted the entire
+            report end to end — executive summary, methodology, all findings, and remediation — and personally
+            owned <span class="font-semibold text-slate-800">Target&nbsp;1</span> (Windows Server 2008 SP1),
+            reconnaissance through exploitation. The Nessus scan surfaced 57 findings (4 critical); I exploited
+            the critical SMB vulnerability <span class="font-semibold text-slate-800">MS09-050 (CVE-2009-3103)</span>
+            with Metasploit to gain a <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded">NT&nbsp;AUTHORITY\SYSTEM</code>
+            shell and capture the proof flag.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Kali Linux</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Nmap</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Nessus</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Metasploit</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Meterpreter</span>
+          </div>
+          <div class="mt-5">
+            <div class="flex items-end justify-between mb-2 gap-3">
+              <p class="font-mono text-xs text-slate-500">From the report — cover through Target 1 (18 pages · scroll or use arrows):</p>
+              <div class="hidden sm:flex gap-2 shrink-0">
+                <button type="button" class="report-prev p-2 rounded-full border border-slate-300 text-slate-600 hover:border-teal-700 hover:text-teal-700 transition" aria-label="Scroll report pages left">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button type="button" class="report-next p-2 rounded-full border border-slate-300 text-slate-600 hover:border-teal-700 hover:text-teal-700 transition" aria-label="Scroll report pages right">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="report-track no-scrollbar snap-row flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2">
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p01.jpg" data-caption="Report cover — CS471 Penetration Testing Report (teammates' names and student IDs redacted)" aria-label="Open report page 1: Cover">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p01.jpg" alt="Report cover — CS471 Penetration Testing Report (teammates' names and student IDs redacted)" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p01</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Cover</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p02.jpg" data-caption="Preface (คำนำ) — background and objectives of the penetration test" aria-label="Open report page 2: Preface">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p02.jpg" alt="Preface (คำนำ) — background and objectives of the penetration test" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p02</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Preface</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p03.jpg" data-caption="Table of contents" aria-label="Open report page 3: Contents">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p03.jpg" alt="Table of contents" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p03</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Contents</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p04.jpg" data-caption="Table of contents (continued)" aria-label="Open report page 4: Contents">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p04.jpg" alt="Table of contents (continued)" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p04</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Contents</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p05.jpg" data-caption="Executive summary — testing approach and scope (four target machines)" aria-label="Open report page 5: Exec summary">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p05.jpg" alt="Executive summary — testing approach and scope (four target machines)" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p05</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Exec summary</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p06.jpg" data-caption="Executive summary — prioritized remediation: short, medium and long term" aria-label="Open report page 6: Remediation">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p06.jpg" alt="Executive summary — prioritized remediation: short, medium and long term" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p06</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Remediation</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p07.jpg" data-caption="Executive summary — overall strengths and weaknesses identified" aria-label="Open report page 7: Strengths / weaknesses">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p07.jpg" alt="Executive summary — overall strengths and weaknesses identified" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p07</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Strengths / weaknesses</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p08.jpg" data-caption="Target 1 (Internal) — target details and Nessus vulnerability summary (57 findings)" aria-label="Open report page 8: Target 1 · overview">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p08.jpg" alt="Target 1 (Internal) — target details and Nessus vulnerability summary (57 findings)" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p08</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Target 1 · overview</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p09.jpg" data-caption="Target 1 — Nessus scan results, findings grouped by severity" aria-label="Open report page 9: Nessus scan">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p09.jpg" alt="Target 1 — Nessus scan results, findings grouped by severity" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p09</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Nessus scan</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p10.jpg" data-caption="Target 1 — vulnerability findings table: Critical and High severity" aria-label="Open report page 10: Findings: Critical/High">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p10.jpg" alt="Target 1 — vulnerability findings table: Critical and High severity" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p10</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Findings: Critical/High</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p11.jpg" data-caption="Target 1 — findings table (Medium/Low) and the selected exploit, MS09-050" aria-label="Open report page 11: Findings: Medium/Low">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p11.jpg" alt="Target 1 — findings table (Medium/Low) and the selected exploit, MS09-050" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p11</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Findings: Medium/Low</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p12.jpg" data-caption="Target 1 — proof-of-concept: exploitation approach and tooling" aria-label="Open report page 12: PoC overview">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p12.jpg" alt="Target 1 — proof-of-concept: exploitation approach and tooling" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p12</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">PoC overview</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p13.jpg" data-caption="Target 1 — reconnaissance: ping check and Nmap service scan (SMB, RDP, DNS)" aria-label="Open report page 13: Reconnaissance">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p13.jpg" alt="Target 1 — reconnaissance: ping check and Nmap service scan (SMB, RDP, DNS)" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p13</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Reconnaissance</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p14.jpg" data-caption="Target 1 — confirming MS09-050 in Nessus and launching Metasploit" aria-label="Open report page 14: Identify vuln">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p14.jpg" alt="Target 1 — confirming MS09-050 in Nessus and launching Metasploit" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p14</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Identify vuln</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p15.jpg" data-caption="Target 1 — selecting the MS09-050 exploit module in Metasploit" aria-label="Open report page 15: Select exploit">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p15.jpg" alt="Target 1 — selecting the MS09-050 exploit module in Metasploit" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p15</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Select exploit</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p16.jpg" data-caption="Target 1 — exploit fired: Meterpreter session, shell, and whoami = NT AUTHORITY\SYSTEM" aria-label="Open report page 16: Exploit → SYSTEM">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p16.jpg" alt="Target 1 — exploit fired: Meterpreter session, shell, and whoami = NT AUTHORITY\SYSTEM" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p16</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Exploit → SYSTEM</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p17.jpg" data-caption="Target 1 — locating and reading proof.txt as SYSTEM (full compromise)" aria-label="Open report page 17: Proof flag">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p17.jpg" alt="Target 1 — locating and reading proof.txt as SYSTEM (full compromise)" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p17</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Proof flag</p>
+              </div>
+            </button>
+            <button type="button" class="project-shot shrink-0 w-36 sm:w-40 text-left rounded-xl border border-slate-200 bg-white overflow-hidden group"
+                    data-full="assets/img/projects/cs471-p18.jpg" data-caption="Target 1 — business impact and remediation recommendations" aria-label="Open report page 18: Impact &amp; fixes">
+              <div class="aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src="assets/img/projects/thumbs/cs471-p18.jpg" alt="Target 1 — business impact and remediation recommendations" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div class="px-2.5 py-2 border-t border-slate-100">
+                <p class="font-mono text-[11px] text-teal-700">p18</p>
+                <p class="text-xs font-medium text-slate-700 leading-tight">Impact &amp; fixes</p>
+              </div>
+            </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- CS423 Smart Air Purifier (IoT) -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <span class="font-mono text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">IoT · Hardware</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">Solo build</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-xl">Smart Air Purifier with PM2.5 Monitoring</h3>
+          <p class="font-mono text-xs text-slate-500 mt-1">CS423 Internet of Things &amp; Applications</p>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+            An ESP32-based smart-home device that continuously measures airborne particulates (PM1.0 / PM2.5 / PM10)
+            with a laser sensor and automatically switches a fan on when air quality drops or a person is detected.
+            Built on a three-layer IoT architecture with live readings on an on-device OLED and streamed to the
+            Blynk cloud for remote monitoring.
+          </p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+            <span class="font-semibold text-slate-800">My role:</span> solo build — hardware wiring, the Arduino
+            (C++) firmware, and the full project report.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">ESP32</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Arduino / C++</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">PMS5003</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">PIR sensor</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Blynk</span>
+          </div>
+          <div class="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <button type="button" class="project-shot group rounded-xl border border-slate-200 bg-slate-100 overflow-hidden aspect-[4/3]"
+                    data-full="assets/img/projects/iot-air-purifier-circuit.jpg"
+                    data-caption="Smart Air Purifier — system wiring diagram (ESP32, PM sensor, PIR, OLED, relay, fan)"
+                    aria-label="View wiring diagram">
+              <img src="assets/img/projects/thumbs/iot-air-purifier-circuit.jpg" alt="Circuit wiring diagram of the smart air purifier" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform" />
+            </button>
+            <button type="button" class="project-shot group rounded-xl border border-slate-200 bg-slate-100 overflow-hidden aspect-[4/3]"
+                    data-full="assets/img/projects/iot-air-purifier-build.jpg"
+                    data-caption="Smart Air Purifier — assembled prototype: 12V fan, ESP32, PM2.5 laser sensor, PIR sensor, OLED and relay module"
+                    aria-label="View assembled prototype">
+              <img src="assets/img/projects/thumbs/iot-air-purifier-build.jpg" alt="Assembled smart air purifier hardware" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform" />
+            </button>
+            <button type="button" class="project-shot group rounded-xl border border-slate-200 bg-slate-100 overflow-hidden aspect-[4/3]"
+                    data-full="assets/img/projects/iot-air-purifier-oled-idle.jpg"
+                    data-caption="Live OLED readout — clean air (AQI: GOOD), no person detected, fan off"
+                    aria-label="View OLED readout, idle state">
+              <img src="assets/img/projects/thumbs/iot-air-purifier-oled-idle.jpg" alt="OLED showing good air quality and no person detected" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform" />
+            </button>
+            <button type="button" class="project-shot group rounded-xl border border-slate-200 bg-slate-100 overflow-hidden aspect-[4/3]"
+                    data-full="assets/img/projects/iot-air-purifier-oled-active.jpg"
+                    data-caption="Live OLED readout — person detected (Human: YES), moderate air quality reading"
+                    aria-label="View OLED readout, active state">
+              <img src="assets/img/projects/thumbs/iot-air-purifier-oled-active.jpg" alt="OLED showing person detected and moderate air quality" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform" />
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section id="certifications" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <p class="font-mono text-sm text-teal-700 mb-2">// certifications &amp; training</p>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">Certifications</h2>
+    <p class="text-slate-600 mb-10 max-w-2xl text-sm">Scroll each row or use the arrows — click any certificate to view it full size.</p>
+    <div id="certSections" class="space-y-12"></div>
+  </section>
+
+  <!-- ============ ACTIVITIES ============ -->
+  <section id="activities" class="bg-white border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <p class="font-mono text-sm text-teal-700 mb-2">// activities &amp; participation</p>
+      <h2 class="text-3xl font-bold text-slate-900 mb-8">Activities</h2>
+      <!-- Optional: add photos with short written descriptions (requirements reward described photos, not bare images) -->
+      <ol class="relative border-l-2 border-slate-200 ml-3 space-y-8">
+
+        <li class="pl-6 relative">
+          <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-teal-700 border-4 border-white"></span>
+          <h3 class="font-semibold text-slate-900">Thailand NCSA &times; Cisco CTF 2026</h3>
+          <p class="font-mono text-xs text-slate-500 mt-0.5">27 June 2026</p>
+          <p class="mt-1.5 text-sm text-slate-600">Competed in a national jeopardy-style capture-the-flag hosted on Cisco's NetAcad platform, <span class="font-medium text-slate-800">solving 21 of 25 challenges</span>.</p>
+        </li>
+
+        <li class="pl-6 relative">
+          <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-teal-700 border-4 border-white"></span>
+          <h3 class="font-semibold text-slate-900">CTF Bootcamp (Onsite) — NCSA</h3>
+          <p class="font-mono text-xs text-slate-500 mt-0.5">23–24 May 2026</p>
+          <p class="mt-1.5 text-sm text-slate-600">Two-day onsite capture-the-flag bootcamp by Thailand's National Cyber Security Agency (NCSA), covering two hands-on tracks: <span class="font-medium text-slate-800">web application attacks</span> — SQL injection (error-based, UNION-based, and blind), including detection, exploitation, filter bypass, and prevention — and <span class="font-medium text-slate-800">digital forensics</span> — the four-step investigation workflow and core command-line tooling (file, mmls, dd, strings, and Autopsy).</p>
+          <div class="mt-3 grid grid-cols-3 gap-2 max-w-md">
+            <button type="button" class="project-shot group rounded-lg border border-slate-200 bg-slate-100 overflow-hidden aspect-[3/2]"
+                    data-full="assets/img/activities/ctf-bootcamp-onsite-group.jpg"
+                    data-caption="NCSA CTF Bootcamp 2026 (onsite) — group photo of participants, instructors and organizers"
+                    aria-label="View bootcamp group photo">
+              <img src="assets/img/activities/thumbs/ctf-bootcamp-onsite-group.jpg" alt="Group photo of the NCSA CTF Bootcamp 2026 onsite participants" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform" />
+            </button>
+            <button type="button" class="project-shot group rounded-lg border border-slate-200 bg-slate-100 overflow-hidden aspect-[3/2]"
+                    data-full="assets/img/activities/ctf-bootcamp-onsite-hall.jpg"
+                    data-caption="NCSA CTF Bootcamp 2026 (onsite) — the training hall during the hands-on capture-the-flag session"
+                    aria-label="View bootcamp training hall">
+              <img src="assets/img/activities/thumbs/ctf-bootcamp-onsite-hall.jpg" alt="Training hall full of participants working during the CTF bootcamp" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform" />
+            </button>
+          </div>
+        </li>
+
+        <li class="pl-6 relative">
+          <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-teal-700 border-4 border-white"></span>
+          <h3 class="font-semibold text-slate-900">IT Empowering Day: in the Era of AI — Bangkok University</h3>
+          <p class="font-mono text-xs text-slate-500 mt-0.5">21 May 2026</p>
+          <p class="mt-1.5 text-sm text-slate-600">Presented our CS497 senior project — an AI-enhanced EDR/XDR security platform for SIAM AI Cloud — at the student showcase during the school's flagship AI-and-careers event, receiving feedback from industry representatives. Also attended industry talks (including &ldquo;AI in Action: From Industry Problems to Real Solutions&rdquo;), reviewed student AI-prototype pitches, and took on a hands-on security challenge run by <span class="font-medium text-slate-800">T-NET</span> at one of the booths — <span class="font-medium text-slate-800">web-application penetration testing</span> and <span class="font-medium text-slate-800">memory forensics</span> on a RAM capture (.raw image). It was a genuinely tough exercise that sparked my interest in digital forensics.</p>
+          <a href="https://www.bu.ac.th/en/featured-stories/2468" target="_blank" rel="noopener" class="mt-1.5 inline-flex items-center gap-1 text-xs font-mono text-teal-700 hover:text-teal-800">
+            event story on bu.ac.th
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <div class="mt-3 grid grid-cols-2 gap-2 max-w-xs">
+            <button type="button" class="project-shot group rounded-lg border border-slate-200 bg-slate-100 overflow-hidden aspect-[4/3]"
+                    data-full="assets/img/activities/it-empowering-hall.jpg"
+                    data-caption="IT Empowering Day 2026 — the main hall filled with student project showcase booths"
+                    aria-label="View the IT Empowering Day hall">
+              <img src="assets/img/activities/thumbs/it-empowering-hall.jpg" alt="Overview of the IT Empowering Day hall with student showcase booths" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform" />
+            </button>
+          </div>
+        </li>
+
+        <li class="pl-6 relative">
+          <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-teal-700 border-4 border-white"></span>
+          <h3 class="font-semibold text-slate-900">CTF Bootcamp (Online) — NCSA</h3>
+          <p class="font-mono text-xs text-slate-500 mt-0.5">25–26 April 2026</p>
+          <p class="mt-1.5 text-sm text-slate-600">Two-day online CTF training program by Thailand's National Cyber Security Agency (NCSA). Day one introduced the cybersecurity field and cyber career paths with an overview of the main CTF categories; day two was hands-on fundamentals — <span class="font-medium text-slate-800">Linux &amp; the command line</span>, <span class="font-medium text-slate-800">networking</span>, <span class="font-medium text-slate-800">cryptography &amp; encoding</span>, <span class="font-medium text-slate-800">web-application basics</span> (including SQL), and an introduction to <span class="font-medium text-slate-800">forensics &amp; reverse engineering</span>.</p>
+        </li>
+
+        <li class="pl-6 relative">
+          <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-teal-700 border-4 border-white"></span>
+          <h3 class="font-semibold text-slate-900">NCSA AI CTF 2026</h3>
+          <p class="font-mono text-xs text-slate-500 mt-0.5">21 March 2026 · qualifying round</p>
+          <p class="mt-1.5 text-sm text-slate-600">Competed in Thailand's first national AI-security capture-the-flag, run by NCSA — challenges spanning <span class="font-medium text-slate-800">prompt engineering</span>, <span class="font-medium text-slate-800">AI security</span>, and cybersecurity — solving <span class="font-medium text-slate-800">40 of 50</span> in the qualifying round.</p>
+        </li>
+
+        <li class="pl-6 relative">
+          <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-teal-700 border-4 border-white"></span>
+          <h3 class="font-semibold text-slate-900">BU MINI CTF — School of IT &amp; Innovation, Bangkok University</h3>
+          <p class="font-mono text-xs text-slate-500 mt-0.5">10 February 2026</p>
+          <p class="mt-1.5 text-sm text-slate-600">Competed as team <span class="font-medium text-slate-800">LuckyStar</span> in a single-round jeopardy-style capture-the-flag competition, part of the BU Cyber Fortress Challenge &amp; Career Expo hosted by my school. At the expo I explored write-blocker hardware and digital forensics (iCMS Cyber Solution), Fortigate and FortiAP security appliances (Fortinet), and discussed internship pathways at the NCSA booth.</p>
+          <div class="mt-3 grid grid-cols-3 gap-2 max-w-md">
+            <button type="button" class="project-shot group rounded-lg border border-slate-200 bg-slate-100 overflow-hidden aspect-[3/2]"
+                    data-full="assets/img/activities/bu-cyber-fortress-expo.jpg"
+                    data-caption="BU Cyber Fortress Challenge &amp; Career Expo — the main hall with the CTF challenge and company booths"
+                    aria-label="View Cyber Fortress expo hall">
+              <img src="assets/img/activities/thumbs/bu-cyber-fortress-expo.jpg" alt="Overview of the BU Cyber Fortress event hall" loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform" />
+            </button>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <p class="font-mono text-sm text-teal-700 mb-2">// get in touch</p>
+    <h2 class="text-3xl font-bold text-slate-900 mb-8">Contact</h2>
+    <div class="grid sm:grid-cols-3 gap-5 max-w-3xl">
+      <a href="mailto:tecchu05124@gmail.com" class="group rounded-2xl border border-slate-200 bg-white p-5 hover:border-teal-700 hover:shadow-md transition">
+        <svg class="w-6 h-6 text-teal-700 mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <p class="font-semibold text-slate-900 text-sm">Email</p>
+        <p class="text-xs text-slate-500 mt-1 break-all">tecchu05124@gmail.com</p>
+      </a>
+      <a href="https://github.com/tecchuuu" target="_blank" rel="noopener" class="group rounded-2xl border border-slate-200 bg-white p-5 hover:border-teal-700 hover:shadow-md transition">
+        <svg class="w-6 h-6 text-teal-700 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.15c0 .3.21.66.8.55A11.51 11.51 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        <p class="font-semibold text-slate-900 text-sm">GitHub</p>
+        <p class="text-xs text-slate-500 mt-1 break-all">github.com/tecchuuu</p>
+      </a>
+      <a href="https://www.linkedin.com/in/kitti-treevichien-983811387/" target="_blank" rel="noopener" class="group rounded-2xl border border-slate-200 bg-white p-5 hover:border-teal-700 hover:shadow-md transition">
+        <svg class="w-6 h-6 text-teal-700 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        <p class="font-semibold text-slate-900 text-sm">LinkedIn</p>
+        <p class="text-xs text-slate-500 mt-1 break-all">linkedin.com/in/kitti-treevichien</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-sm text-slate-500">
+      <p>© 2026 Kitti Treevichien</p>
+      <p class="font-mono text-xs">built with HTML + Tailwind CSS</p>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div id="lightbox" class="hidden fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm p-4 sm:p-8 flex-col items-center justify-center" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button id="lbClose" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/15 text-white hover:bg-white/25" aria-label="Close viewer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button id="lbPrev" class="hidden absolute left-2 sm:left-5 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-white/15 text-white hover:bg-white/25" aria-label="Previous image">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button id="lbNext" class="hidden absolute right-2 sm:right-5 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-white/15 text-white hover:bg-white/25" aria-label="Next image">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <img id="lbImg" src="" alt="" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl bg-white" />
+    <div class="mt-4 text-center">
+      <p id="lbTitle" class="text-white font-semibold text-sm sm:text-base max-w-2xl mx-auto px-10"></p>
+      <p id="lbCount" class="text-white/50 font-mono text-xs mt-1"></p>
+      <a id="lbPdf" href="#" target="_blank" rel="noopener" class="hidden mt-1 inline-flex items-center gap-1 text-teal-300 text-xs font-mono hover:text-teal-200">
+        open original PDF
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    /* ---------- certificate data ----------
+       t = title, i = issuer, f = file base name, ext = full-size image extension,
+       pdf = true when an original PDF exists in assets/certs/ */
+    const certData = [
+      {
+        category: 'Cybersecurity',
+        items: [
+          { t: 'Penetration Test', i: 'NCSA', f: 'penetration-test-thnca', ext: 'jpg', pdf: true },
+          { t: 'Ethical Hacker', i: 'Cisco', f: 'ethical-hacker-cisco', ext: 'jpg', pdf: true },
+          { t: 'CTF Bootcamp (Onsite)', i: 'NCSA', f: 'ctf-bootcamp-onsite-thnca', ext: 'jpg', pdf: false },
+          { t: 'CTF Bootcamp (Online)', i: 'NCSA', f: 'ctf-bootcamp-online-thnca', ext: 'jpg', pdf: false },
+          { t: 'CTF Participation Certificate', i: 'BU School of IT & Innovation', f: 'ctf-participation-bu-iti', ext: 'jpg', pdf: true },
+          { t: 'Cybersecurity Foundation Course', i: 'NCSA', f: 'cybersecurity-foundation-thnca', ext: 'jpg', pdf: true },
+          { t: 'Cyber Security 101', i: 'TryHackMe', f: 'cyber-security-101-thm', ext: 'jpg', pdf: true },
+          { t: 'Pre Security', i: 'TryHackMe', f: 'pre-security-thm', ext: 'jpg', pdf: true },
+          { t: 'Basic Cybersecurity', i: 'MOOC', f: 'basic-cybersecurity-mooc', ext: 'jpg', pdf: true },
+        ],
+      },
+      {
+        category: 'AI & Machine Learning',
+        items: [
+          { t: 'Official Practice Exam: AWS Certified AI Practitioner', i: 'AWS', f: 'aws-ai-practitioner-practice-exam', ext: 'jpg', pdf: true },
+          { t: 'Machine Learning Foundations', i: 'AWS Academy', f: 'ml-foundation-aws', ext: 'jpg', pdf: true },
+          { t: 'Machine Learning for NLP', i: 'AWS Academy', f: 'ml-for-nlp-aws', ext: 'jpg', pdf: true },
+          { t: 'Generative AI Foundations', i: 'AWS Academy', f: 'generative-ai-foundations-aws', ext: 'jpg', pdf: true },
+          { t: 'Generating Code with AI', i: 'Coursera', f: 'generating-code-with-ai-coursera', ext: 'jpg', pdf: true },
+          { t: 'Intro to Generative AI: Art of the Possible', i: 'AWS', f: 'intro-generative-ai-art-of-possible-aws', ext: 'jpg', pdf: true },
+          { t: 'Artificial Intelligence', i: 'TDGA', f: 'artificial-intelligence-tdga', ext: 'jpg', pdf: true },
+          { t: 'AI Governance & Ethics', i: 'TDGA', f: 'ai-governance-ethics-tdga', ext: 'jpg', pdf: true },
+          { t: 'AI for Government Services', i: 'TDGA', f: 'ai-for-government-tdga', ext: 'jpg', pdf: true },
+        ],
+      },
+      {
+        category: 'Other',
+        items: [
+          { t: 'English Language Proficiency — CEFR C1.2', i: 'Speexx', f: 'english-proficiency-c1-2-speexx', ext: 'jpg', pdf: true },
+          { t: 'Official Practice Question Set: AWS Certified Cloud Practitioner', i: 'AWS', f: 'aws-cloud-practitioner-practice-exam', ext: 'jpg', pdf: true },
+          { t: 'Blockchain for Government Services', i: 'TDGA', f: 'blockchain-for-government-tdga', ext: 'jpg', pdf: true },
+        ],
+      },
+    ];
+
+    /* ---------- render cert sliders ---------- */
+    const certRoot = document.getElementById('certSections');
+    certData.forEach((group, gi) => {
+      const section = document.createElement('div');
+      section.innerHTML = `
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-slate-900 flex items-center gap-2.5">
+            ${group.category}
+            <span class="font-mono text-xs px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200">${group.items.length}</span>
+          </h3>
+          <div class="hidden sm:flex gap-2">
+            <button class="slider-prev p-2 rounded-full border border-slate-300 text-slate-600 hover:border-teal-700 hover:text-teal-700 transition" aria-label="Scroll ${group.category} left">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="slider-next p-2 rounded-full border border-slate-300 text-slate-600 hover:border-teal-700 hover:text-teal-700 transition" aria-label="Scroll ${group.category} right">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="slider-track no-scrollbar snap-row flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2"></div>`;
+      const track = section.querySelector('.slider-track');
+      // gallery items for this category — used for in-viewer prev/next
+      const groupItems = group.items.map((c) => ({
+        src: `assets/certs/img/${c.f}.${c.ext}`,
+        caption: `${c.t} — ${c.i}`,
+        pdf: c.pdf ? `assets/certs/${c.f}.pdf` : null,
+      }));
+      group.items.forEach((c, ci) => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'shrink-0 w-56 sm:w-64 text-left rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-teal-700 hover:shadow-md transition group';
+        card.setAttribute('aria-label', `View certificate: ${c.t} by ${c.i}`);
+        card.innerHTML = `
+          <div class="h-36 sm:h-40 bg-slate-100 flex items-center justify-center overflow-hidden">
+            <img src="assets/certs/img/thumbs/${c.f}.jpg" alt="${c.t} certificate from ${c.i}" loading="lazy"
+                 class="max-h-full max-w-full object-contain group-hover:scale-[1.03] transition-transform" />
+          </div>
+          <div class="p-4">
+            <p class="font-semibold text-sm text-slate-900 leading-snug">${c.t}</p>
+            <p class="font-mono text-xs text-slate-500 mt-1">${c.i}</p>
+          </div>`;
+        card.addEventListener('click', () => openAt(groupItems, ci));
+        track.appendChild(card);
+      });
+      section.querySelector('.slider-prev').addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' }));
+      section.querySelector('.slider-next').addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' }));
+      certRoot.appendChild(section);
+    });
+
+    /* ---------- lightbox (gallery-aware, with prev/next) ---------- */
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbPdf = document.getElementById('lbPdf');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    const lbCount = document.getElementById('lbCount');
+
+    let lbItems = [];   // [{ src, caption, pdf }]
+    let lbIndex = 0;
+
+    function renderLbItem() {
+      const it = lbItems[lbIndex];
+      if (!it) return;
+      lbImg.src = it.src;
+      lbImg.alt = it.caption || '';
+      lbTitle.textContent = it.caption || '';
+      if (it.pdf) { lbPdf.href = it.pdf; lbPdf.classList.remove('hidden'); }
+      else lbPdf.classList.add('hidden');
+      const multi = lbItems.length > 1;
+      lbPrev.classList.toggle('hidden', !multi);
+      lbNext.classList.toggle('hidden', !multi);
+      lbCount.textContent = multi ? `${lbIndex + 1} / ${lbItems.length}` : '';
+    }
+    function openAt(items, index) {
+      lbItems = items;
+      lbIndex = index;
+      renderLbItem();
+      lb.classList.remove('hidden');
+      lb.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function lbStep(delta) {
+      if (lbItems.length < 2) return;
+      lbIndex = (lbIndex + delta + lbItems.length) % lbItems.length;  // wrap around
+      renderLbItem();
+    }
+    function closeLightbox() {
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    /* project galleries: group .project-shot buttons by their shared parent
+       (the IoT grid, and the report carousel track are each one gallery) */
+    const projGroups = new Map();
+    document.querySelectorAll('.project-shot').forEach((btn) => {
+      const key = btn.parentElement;
+      if (!projGroups.has(key)) projGroups.set(key, []);
+      projGroups.get(key).push(btn);
+    });
+    projGroups.forEach((btns) => {
+      const items = btns.map((b) => ({ src: b.dataset.full, caption: b.dataset.caption, pdf: null }));
+      btns.forEach((b, i) => b.addEventListener('click', () => openAt(items, i)));
+    });
+
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', (e) => { e.stopPropagation(); lbStep(-1); });
+    lbNext.addEventListener('click', (e) => { e.stopPropagation(); lbStep(1); });
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (lb.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') lbStep(-1);
+      else if (e.key === 'ArrowRight') lbStep(1);
+    });
+
+    /* ---------- hero email: click to copy ---------- */
+    const emailBtn = document.getElementById('emailCopy');
+    const emailText = document.getElementById('emailText');
+    if (emailBtn) {
+      const original = emailBtn.dataset.email;
+      emailBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(original);
+        } catch (e) {
+          const r = document.createRange(); r.selectNode(emailText);
+          const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+          document.execCommand('copy'); s.removeAllRanges();
+        }
+        emailText.textContent = 'Copied!';
+        emailBtn.classList.add('text-teal-700');
+        setTimeout(() => { emailText.textContent = original; }, 1400);
+      });
+    }
+
+    /* ---------- report page carousel arrows ---------- */
+    (function () {
+      const track = document.querySelector('.report-track');
+      if (!track) return;
+      const step = () => track.clientWidth * 0.8;
+      const prev = document.querySelector('.report-prev');
+      const next = document.querySelector('.report-next');
+      if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+      if (next) next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    })();
+
+    /* ---------- mobile menu ---------- */
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!open));
+    });
+    mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+  </script>
+</body>
+</html>
