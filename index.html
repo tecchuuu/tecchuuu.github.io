@@ -71,9 +71,7 @@
           Computer Science student focusing on <span class="text-teal-700 font-semibold">Cybersecurity</span> &amp; AI
         </p>
         <p class="mt-5 max-w-xl text-slate-600 leading-relaxed">
-          Fourth-year Computer Science student at Bangkok University with a strong interest in
-          offensive security, CTF competitions, and applied AI. I enjoy learning by doing —
-          from TryHackMe labs and CTF bootcamps to AWS machine learning coursework.
+          I learn by building — taking systems apart to see how they work.
         </p>
         <div class="mt-7 flex flex-wrap gap-3">
           <a href="#certifications" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-700 text-white text-sm font-semibold hover:bg-teal-800 transition">
@@ -116,10 +114,9 @@
       <div class="grid md:grid-cols-5 gap-8">
         <div class="md:col-span-3 space-y-4 text-slate-600 leading-relaxed">
           <p>
-            I'm a Computer Science student at Bangkok University, currently between my third and
-            fourth year. My main focus is cybersecurity — I've completed foundational tracks on
-            TryHackMe, trained at NCSA CTF bootcamps (both online and onsite), and competed in a
-            CTF hosted by my school.
+            I'm a fourth-year Computer Science student at Bangkok University. My main focus is
+            cybersecurity — I've completed foundational tracks on TryHackMe, trained at NCSA CTF
+            bootcamps (both online and onsite), and competed in national and university CTFs.
           </p>
           <p>
             Alongside security, I've built a foundation in AI and machine learning through
@@ -139,7 +136,6 @@
               <p class="text-slate-600">School of Information Technology and Innovation</p>
               <p class="text-slate-600">Bangkok University</p>
               <p class="text-slate-500 font-mono text-xs mt-2">4th year · expected graduation 2027</p>
-              <!-- TODO: confirm faculty name + graduation year -->
             </div>
           </div>
         </div>
@@ -240,7 +236,7 @@
                 Detections trigger automated responses (block IP, isolate host) and surface on a real-time SOC dashboard,
                 reducing analyst workload while supporting big-data-scale security monitoring.
               </p>
-              <p class="mt-3 text-sm text-slate-600 leading-relaxed"><span class="font-semibold text-slate-800">My role (in progress):</span> Building the detection pipeline end to end — the detection stack running in Docker with a live agent, configured to archive every event so the AI sees what signature rules miss. I built the streaming layer feeding a consumer that turns live login data into features, runs anomaly detection, and writes AI findings back to the index tagged separately from rule alerts. A custom dashboard shows both sources side by side, making the detection gap visible. Validated against controlled attacks with recorded ground truth — the model catches slow, paced attacks the rule engine never flags.</p>
+              <p class="mt-3 text-sm text-slate-600 leading-relaxed"><span class="font-semibold text-slate-800">My role:</span> the detection pipeline. The stack runs in Docker with a live agent, configured to archive every event so the AI sees what signature rules miss. The streaming layer feeds a consumer that turns live login data into features, runs anomaly detection, and writes findings back to the index tagged separately from rule alerts. A custom dashboard shows both sources side by side. Validated against controlled attacks with recorded ground truth: the model catches slow, paced attacks the rule engine never flags.</p>
               <div class="mt-4 flex flex-wrap gap-1.5">
                 <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Wazuh</span>
                 <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Apache Kafka</span>
@@ -258,6 +254,36 @@
           </div>
         </article>
 
+        <!-- Neural network from scratch (personal project) -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <span class="font-mono text-xs px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200">AI / Machine Learning</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-xl">Neural Network from Scratch</h3>
+          <p class="font-mono text-xs text-slate-500 mt-1">Personal project · self-directed</p>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+            A feedforward neural network written from first principles in C++ — no machine-learning or maths
+            libraries, no shortcuts. Every neuron, layer, and gradient is hand-written, so the maths behind
+            training is implemented rather than imported. I built it to genuinely understand what happens
+            inside a model instead of only calling a framework.
+          </p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+            Built in stages: a single neuron, then layers, a full forward pass, weight initialisation, the
+            loss function, backpropagation, gradient descent, and a training loop that learns XOR.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">C++</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Neural networks</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Backpropagation</span>
+            <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Gradient descent</span>
+          </div>
+          <a href="https://github.com/tecchuuu/neural-network-from-scratch-cpp" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-1.5 text-sm font-mono text-teal-700 hover:text-teal-800">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.15c0 .3.21.66.8.55A11.51 11.51 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            view the code on GitHub
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </article>
+
         <!-- CS471 Pentest Report -->
         <article class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
           <div class="flex flex-wrap items-center gap-2 mb-3">
@@ -273,13 +299,12 @@
             guidance (immediate, short-term, and long-term).
           </p>
           <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-            <span class="font-semibold text-slate-800">My role:</span> I authored and formatted the entire
-            report end to end — executive summary, methodology, all findings, and remediation — and personally
-            owned <span class="font-semibold text-slate-800">Target&nbsp;1</span> (Windows Server 2008 SP1),
-            reconnaissance through exploitation. The Nessus scan surfaced 57 findings (4 critical); I exploited
-            the critical SMB vulnerability <span class="font-semibold text-slate-800">MS09-050 (CVE-2009-3103)</span>
-            with Metasploit to gain a <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded">NT&nbsp;AUTHORITY\SYSTEM</code>
-            shell and capture the proof flag.
+            <span class="font-semibold text-slate-800">My role:</span> the report — executive summary,
+            methodology, findings, and remediation — and <span class="font-semibold text-slate-800">Target&nbsp;1</span>
+            (Windows Server 2008 SP1), reconnaissance through exploitation. The Nessus scan surfaced 57 findings,
+            4 of them critical; exploiting <span class="font-semibold text-slate-800">MS09-050 (CVE-2009-3103)</span>
+            over SMB with Metasploit returned an <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded">NT&nbsp;AUTHORITY\SYSTEM</code>
+            shell and the proof flag.
           </p>
           <div class="mt-5 flex flex-wrap gap-1.5">
             <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">Kali Linux</span>
@@ -500,8 +525,7 @@
             Blynk cloud for remote monitoring.
           </p>
           <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-            <span class="font-semibold text-slate-800">My role:</span> solo build — hardware wiring, the Arduino
-            (C++) firmware, and the full project report.
+            Covers the hardware wiring, the Arduino (C++) firmware, and the project report.
           </p>
           <div class="mt-4 flex flex-wrap gap-1.5">
             <span class="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200">ESP32</span>
