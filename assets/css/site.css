@@ -92,6 +92,10 @@ a.sheet:hover { border-color: var(--ink); }
 .kind { font-size: .875rem; color: var(--pencil); }
 .kind strong { color: var(--graphite); font-weight: 500; }
 
+/* every section after the hero starts on a clean white sheet behind its heading, then fades
+   back into the graph paper, so long sections stay mostly grid and short ones mostly white */
+.band { background: linear-gradient(var(--sheet) 0, var(--sheet) 160px, transparent 520px); }
+
 /* diamonds are the site's one recurring mark: bullets, timeline, rules */
 ul.diamonds { list-style: none; padding: 0; }
 ul.diamonds li { position: relative; padding-left: 1.25rem; }
