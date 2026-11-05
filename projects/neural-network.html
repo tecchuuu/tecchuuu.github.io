@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neural Network from Scratch — Kitti Treevichien</title>
+  <meta name="description" content="A feedforward neural network written from first principles in C++, with no machine-learning or maths libraries. Personal project by Kitti Treevichien." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tw-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+  <svg width="0" height="0" class="absolute" style="color: var(--ink)" aria-hidden="true">
+    <defs>
+      <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1" />
+      </pattern>
+    </defs>
+    <symbol id="m-diamond" viewBox="0 0 40 40"><path d="M20 2 38 20 20 38 2 20Z" fill="none" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke" /></symbol>
+    <symbol id="m-hatch" viewBox="0 0 40 40"><rect x="5" y="5" width="30" height="30" fill="url(#hatch)" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke" /></symbol>
+    <symbol id="m-cube" viewBox="0 0 40 40"><path d="M20 3 34.7 11.5 34.7 28.5 20 37 5.3 28.5 5.3 11.5Z M20 20 5.3 11.5 M20 20 34.7 11.5 M20 20 20 37" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke" /></symbol>
+  </svg>
+
+  <header class="sticky top-0 z-40 border-b border-rule" style="background: rgb(247 249 251 / 0.88); backdrop-filter: blur(8px);">
+    <nav class="max-w-content mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+      <a href="../index.html" class="flex items-center gap-2.5 font-serif text-lg font-semibold text-graphite">
+        <svg class="w-3.5 h-3.5 text-ink" viewBox="0 0 40 40" aria-hidden="true"><use href="#m-diamond" /></svg>
+        Kitti Treevichien
+      </a>
+      <ul class="hidden md:flex items-center gap-7 text-[0.95rem]">
+        <li><a href="../index.html#about" class="hover:text-ink">About</a></li>
+        <li><a href="../index.html#skills" class="hover:text-ink">Skills</a></li>
+        <li><a href="../index.html#projects" class="hover:text-ink">Projects</a></li>
+        <li><a href="../index.html#certifications" class="hover:text-ink">Certifications</a></li>
+        <li><a href="../index.html#activities" class="hover:text-ink">Activities</a></li>
+        <li><a href="../index.html#contact" class="text-ink hover:text-ink-deep">Contact</a></li>
+      </ul>
+      <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-sheet" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-rule bg-paper">
+      <ul class="px-4 py-3 space-y-1">
+        <li><a href="../index.html#about" class="block px-3 py-2 rounded-md hover:bg-sheet">About</a></li>
+        <li><a href="../index.html#skills" class="block px-3 py-2 rounded-md hover:bg-sheet">Skills</a></li>
+        <li><a href="../index.html#projects" class="block px-3 py-2 rounded-md hover:bg-sheet">Projects</a></li>
+        <li><a href="../index.html#certifications" class="block px-3 py-2 rounded-md hover:bg-sheet">Certifications</a></li>
+        <li><a href="../index.html#activities" class="block px-3 py-2 rounded-md hover:bg-sheet">Activities</a></li>
+        <li><a href="../index.html#contact" class="block px-3 py-2 rounded-md hover:bg-sheet text-ink">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <article class="with-margins max-w-content mx-auto px-4 sm:px-6 pt-10 pb-24">
+      <svg class="margin mark right" data-depth="0.16" data-rot="45" style="top: 5rem; width: 42px; height: 42px; margin-left: 6rem"><use href="#m-hatch" /></svg>
+      <svg class="margin mark faint left" data-depth="0.12" style="top: 18rem; width: 30px; height: 30px; margin-right: 6rem"><use href="#m-diamond" /></svg>
+      <svg class="margin mark faint right" data-depth="0.2" style="top: 34rem; width: 36px; height: 36px; margin-left: 2rem"><use href="#m-cube" /></svg>
+
+      <a href="../index.html#projects" class="ink-link text-[0.95rem]">All projects</a>
+
+      <p class="kind mt-10"><strong>Personal project</strong>, AI / Machine Learning, 2026</p>
+      <h1 class="mt-3 text-[2.6rem] sm:text-[3.6rem]">Neural Network from Scratch</h1>
+      <p class="mt-4 font-serif text-[1.35rem] sm:text-[1.5rem] leading-snug prose">
+        A feedforward neural network in C++, with every layer and gradient written by hand.
+      </p>
+      <p class="mt-5"><a href="https://github.com/tecchuuu/neural-network-from-scratch-cpp" target="_blank" rel="noopener" class="ink-link">Code on GitHub</a></p>
+
+      <div class="mt-14 grid lg:grid-cols-[minmax(0,1fr)_19rem] gap-12">
+        <div class="prose">
+          <p>
+            A feedforward neural network written from first principles in C++ — no machine-learning or maths
+            libraries, no shortcuts. Every neuron, layer, and gradient is hand-written, so the maths behind
+            training is implemented rather than imported. I built it to genuinely understand what happens
+            inside a model instead of only calling a framework.
+          </p>
+          <p>
+            Built in stages: a single neuron, then layers, a full forward pass, weight initialisation, the
+            loss function, backpropagation, gradient descent, and a training loop that learns XOR.
+          </p>
+        </div>
+        <aside class="sheet p-6 self-start">
+          <h3 class="text-lg">Built with</h3>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            <span class="tag">C++</span><span class="tag">Neural networks</span><span class="tag">Backpropagation</span><span class="tag">Gradient descent</span>
+          </div>
+        </aside>
+      </div>
+
+      <div class="mt-16 grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-[1.9rem]">How it's set up</h2>
+          <ul class="diamonds mt-5 space-y-3 prose">
+            <li>A 2-4-1 network: two inputs, a hidden layer of four sigmoid neurons, and one sigmoid output.</li>
+            <li>Weights and biases start random, between −1 and 1.</li>
+            <li>Mean squared error as the loss, a learning rate of 0.5, and 3,000 passes over the four XOR cases, updating the weights after every example.</li>
+            <li>Each layer can use sigmoid or ReLU, and backpropagation uses the matching derivative.</li>
+          </ul>
+          <h3 class="mt-8 text-[1.3rem]">Why XOR</h3>
+          <p class="mt-2 prose">XOR is the smallest problem a single neuron can't solve: no straight line separates the
+            ones from the zeros. The hidden layer has to learn something first, so if any part of backpropagation is
+            wrong, XOR is where it shows.</p>
+        </div>
+        <figure>
+          <h2 class="text-[1.9rem]">One training run</h2>
+          <div class="mt-5 sheet p-5">
+            <pre class="output">epoch 0 : 0.31448
+epoch 500 : 0.0111591
+epoch 1000 : 0.00231748
+epoch 1500 : 0.00123627
+epoch 2000 : 0.000833405
+epoch 2500 : 0.00062547
+epoch 3000 : 0.00049924
+
+Final predictions:
+0 XOR 0 = 0.0168907 (target 0)
+0 XOR 1 = 0.979128 (target 1)
+1 XOR 0 = 0.978503 (target 1)
+1 XOR 1 = 0.0284861 (target 0)</pre>
+          </div>
+          <figcaption class="mt-3 text-[0.95rem] muted">The program's own output: the loss falls from 0.31 to 0.0005,
+            and every answer ends up close to its target. The starting weights are random, so each run differs a little.</figcaption>
+        </figure>
+      </div>
+
+      <h2 class="mt-16 text-[1.9rem]">The maths it implements</h2>
+      <p class="mt-2 muted text-[0.95rem]">Each of these is written out in the code, not imported from a library.</p>
+      <div class="mt-6 grid md:grid-cols-2 gap-4">
+        <figure class="sheet p-6 flex flex-col">
+          <div class="grow flex items-center justify-center py-4"><img src="../assets/formulas/sigmoid.svg" alt="sigma of z equals 1 over 1 plus e to the minus z" class="max-w-full h-auto" /></div>
+          <figcaption class="mt-3 text-[0.95rem] muted">The activation: squashes each neuron's weighted sum into the range 0 to 1.</figcaption>
+        </figure>
+        <figure class="sheet p-6 flex flex-col">
+          <div class="grow flex items-center justify-center py-4"><img src="../assets/formulas/backprop.svg" alt="delta of layer l equals the transposed weights of layer l plus 1 times delta of layer l plus 1, element-wise times sigma prime of z of layer l" class="max-w-full h-auto" /></div>
+          <figcaption class="mt-3 text-[0.95rem] muted">Backpropagation: each layer's error comes from the layer after it.</figcaption>
+        </figure>
+        <figure class="sheet p-6 flex flex-col">
+          <div class="grow flex items-center justify-center py-4"><img src="../assets/formulas/gradient.svg" alt="the gradient of the loss with respect to the weights of layer l equals delta of layer l times the transposed activations of layer l minus 1" class="max-w-full h-auto" /></div>
+          <figcaption class="mt-3 text-[0.95rem] muted">The weight gradient: a layer's error times the activations that fed it.</figcaption>
+        </figure>
+        <figure class="sheet p-6 flex flex-col">
+          <div class="grow flex items-center justify-center py-4"><img src="../assets/formulas/sgd.svg" alt="theta at step t plus 1 equals theta at step t minus eta times the gradient of the loss" class="max-w-full h-auto" /></div>
+          <figcaption class="mt-3 text-[0.95rem] muted">Gradient descent: step every weight a little against its gradient.</figcaption>
+        </figure>
+      </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-rule">
+    <div class="max-w-content mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-sm muted">
+      <p>© 2026 Kitti Treevichien</p>
+      <p>Built with HTML and Tailwind CSS. Formulas typeset with LaTeX.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Air Purifier — Kitti Treevichien</title>
+  <meta name="description" content="An ESP32 smart air purifier that measures PM2.5 and switches a fan on when air quality drops or a person is detected. Course project by Kitti Treevichien." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tw-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+  <svg width="0" height="0" class="absolute" style="color: var(--ink)" aria-hidden="true">
+    <defs>
+      <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1" />
+      </pattern>
+    </defs>
+    <symbol id="m-diamond" viewBox="0 0 40 40"><path d="M20 2 38 20 20 38 2 20Z" fill="none" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke" /></symbol>
+    <symbol id="m-hatch" viewBox="0 0 40 40"><rect x="5" y="5" width="30" height="30" fill="url(#hatch)" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke" /></symbol>
+    <symbol id="m-cube" viewBox="0 0 40 40"><path d="M20 3 34.7 11.5 34.7 28.5 20 37 5.3 28.5 5.3 11.5Z M20 20 5.3 11.5 M20 20 34.7 11.5 M20 20 20 37" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke" /></symbol>
+  </svg>
+
+  <header class="sticky top-0 z-40 border-b border-rule" style="background: rgb(247 249 251 / 0.88); backdrop-filter: blur(8px);">
+    <nav class="max-w-content mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+      <a href="../index.html" class="flex items-center gap-2.5 font-serif text-lg font-semibold text-graphite">
+        <svg class="w-3.5 h-3.5 text-ink" viewBox="0 0 40 40" aria-hidden="true"><use href="#m-diamond" /></svg>
+        Kitti Treevichien
+      </a>
+      <ul class="hidden md:flex items-center gap-7 text-[0.95rem]">
+        <li><a href="../index.html#about" class="hover:text-ink">About</a></li>
+        <li><a href="../index.html#skills" class="hover:text-ink">Skills</a></li>
+        <li><a href="../index.html#projects" class="hover:text-ink">Projects</a></li>
+        <li><a href="../index.html#certifications" class="hover:text-ink">Certifications</a></li>
+        <li><a href="../index.html#activities" class="hover:text-ink">Activities</a></li>
+        <li><a href="../index.html#contact" class="text-ink hover:text-ink-deep">Contact</a></li>
+      </ul>
+      <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-sheet" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-rule bg-paper">
+      <ul class="px-4 py-3 space-y-1">
+        <li><a href="../index.html#about" class="block px-3 py-2 rounded-md hover:bg-sheet">About</a></li>
+        <li><a href="../index.html#skills" class="block px-3 py-2 rounded-md hover:bg-sheet">Skills</a></li>
+        <li><a href="../index.html#projects" class="block px-3 py-2 rounded-md hover:bg-sheet">Projects</a></li>
+        <li><a href="../index.html#certifications" class="block px-3 py-2 rounded-md hover:bg-sheet">Certifications</a></li>
+        <li><a href="../index.html#activities" class="block px-3 py-2 rounded-md hover:bg-sheet">Activities</a></li>
+        <li><a href="../index.html#contact" class="block px-3 py-2 rounded-md hover:bg-sheet text-ink">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <article class="with-margins max-w-content mx-auto px-4 sm:px-6 pt-10 pb-24">
+      <svg class="margin mark right" data-depth="0.16" data-rot="45" style="top: 5rem; width: 42px; height: 42px; margin-left: 6rem"><use href="#m-hatch" /></svg>
+      <svg class="margin mark faint left" data-depth="0.12" style="top: 16rem; width: 30px; height: 30px; margin-right: 5rem"><use href="#m-diamond" /></svg>
+      <svg class="margin mark faint left" data-depth="0.22" style="top: 34rem; width: 36px; height: 36px; margin-right: 1rem"><use href="#m-cube" /></svg>
+
+      <a href="../index.html#projects" class="ink-link text-[0.95rem]">All projects</a>
+
+      <p class="kind mt-10"><strong>Course project</strong>, CS423 Internet of Things and Applications, 2026, in a group of three</p>
+      <h1 class="mt-3 text-[2.6rem] sm:text-[3.6rem]">Smart Air Purifier with PM2.5 Monitoring</h1>
+      <p class="mt-4 font-serif text-[1.35rem] sm:text-[1.5rem] leading-snug prose">
+        Measures the air and turns the fan on by itself when it gets worse, or when someone walks in.
+      </p>
+
+      <div class="mt-14 grid lg:grid-cols-[minmax(0,1fr)_19rem] gap-12">
+        <div class="prose">
+          <p>
+            An ESP32-based smart-home device that continuously measures airborne particulates (PM1.0 / PM2.5 / PM10)
+            with a laser sensor and automatically switches a fan on when air quality drops or a person is detected.
+            Built on a three-layer IoT architecture with live readings on an on-device OLED and streamed to the
+            Blynk cloud for remote monitoring.
+          </p>
+          <p>
+            Covers the hardware wiring, the Arduino (C++) firmware, and the project report.
+          </p>
+        </div>
+        <aside class="sheet p-6 self-start">
+          <h3 class="text-lg">Built with</h3>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            <span class="tag">ESP32</span><span class="tag">Arduino / C++</span><span class="tag">PMS5003</span><span class="tag">PIR sensor</span><span class="tag">Blynk</span>
+          </div>
+        </aside>
+      </div>
+
+      <div class="mt-16 grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-[1.9rem]">How it decides</h2>
+          <p class="mt-4 prose">The fan doesn't use one fixed threshold. When someone is in the room it switches on
+            early; when the room is empty it waits, which saves power and filter life.</p>
+          <div class="mt-5 sheet divide-y divide-[color:var(--rule)] text-[0.98rem]">
+            <div class="flex items-baseline justify-between gap-4 px-5 py-3"><span>Someone in the room</span><span class="font-medium">fan on above 25 µg/m³</span></div>
+            <div class="flex items-baseline justify-between gap-4 px-5 py-3"><span>Room empty</span><span class="font-medium">fan on above 55 µg/m³</span></div>
+          </div>
+          <p class="mt-4 prose">A motion sensor misses people who sit still, so the device counts the room as occupied
+            for 15 seconds after the last movement it sees.</p>
+        </div>
+        <div>
+          <h2 class="text-[1.9rem]">How it's built</h2>
+          <ul class="diamonds mt-5 space-y-3 prose">
+            <li>Three layers: the sensors (a PMS5003 laser particle sensor and a PIR motion sensor), the ESP32, and
+              two displays, the OLED on the device and the Blynk app on a phone.</li>
+            <li>Every decision is made on the ESP32, so the purifier keeps working when the Wi-Fi drops. Blynk only
+              gets a copy of the readings every 5 seconds.</li>
+            <li>The firmware finds the start of each 32-byte frame from the PMS5003 and checks its checksum before
+              trusting a reading.</li>
+            <li>The 12 V fan has its own power supply, switched through a relay, so it can't disturb the ESP32 and
+              the sensors.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="mt-16 text-[1.9rem]">Testing it</h2>
+      <div class="mt-4 prose">
+        <p>With smoke held near the sensor in a small box, PM2.5 went from 6 µg/m³ to 587 within seconds, and 30
+          seconds after the fan started it was back down to 19. All four cases, occupied or empty with clean or dirty
+          air, switched the fan as designed.</p>
+        <p class="muted">The box wasn't sealed, so not all of that drop is the filter. The test shows that the sensor
+          and the fan logic respond correctly, not how well the purifier actually cleans a room.</p>
+      </div>
+      <div class="mt-6 grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl" data-gallery>
+        <button type="button" class="project-shot shot aspect-[4/3]"
+                data-full="../assets/img/projects/iot-air-purifier-pm25-6.jpg"
+                data-caption="Before: PM2.5 at 6 µg/m³ (GOOD), nobody detected, fan off"
+                aria-label="View the reading before the test">
+          <img src="../assets/img/projects/thumbs/iot-air-purifier-pm25-6.jpg" alt="OLED reading PM2.5 6.0, AQI good, fan off" loading="lazy" class="w-full h-full object-cover" />
+        </button>
+        <button type="button" class="project-shot shot aspect-[4/3]"
+                data-full="../assets/img/projects/iot-air-purifier-pm25-587.jpg"
+                data-caption="Smoke near the sensor: PM2.5 at 587 µg/m³ (HAZARDOUS), fan on"
+                aria-label="View the reading during the smoke test">
+          <img src="../assets/img/projects/thumbs/iot-air-purifier-pm25-587.jpg" alt="OLED reading PM2.5 587, AQI hazardous, fan on" loading="lazy" class="w-full h-full object-cover" />
+        </button>
+        <button type="button" class="project-shot shot aspect-[4/3]"
+                data-full="../assets/img/projects/iot-air-purifier-pm25-19.jpg"
+                data-caption="30 seconds of fan later: PM2.5 down to 19 µg/m³ (MODERATE), fan off again"
+                aria-label="View the reading after the fan ran">
+          <img src="../assets/img/projects/thumbs/iot-air-purifier-pm25-19.jpg" alt="OLED reading PM2.5 19.0, AQI moderate, fan off" loading="lazy" class="w-full h-full object-cover" />
+        </button>
+      </div>
+
+      <h2 class="mt-16 text-[1.9rem]">What went wrong</h2>
+      <ul class="diamonds mt-5 space-y-3 prose">
+        <li>The PMS5003 uses a 1.25 mm 8-pin connector, and we couldn't find a ready-made cable for it, so we soldered
+          a bare-wire cable onto jumper leads ourselves.</li>
+        <li>A 0.96-inch screen can't fit everything, so it alternates between a live-status page and an air-quality
+          scale every 5 seconds.</li>
+        <li>The sensor needs about 30 seconds to settle after power-on, so the boot screen says "Warming PMS5003…"
+          while it does.</li>
+        <li>Next steps would be a HEPA filter, a sealed enclosure, a stronger fan, and logging the history instead of
+          only showing the live value.</li>
+      </ul>
+
+      <h2 class="mt-16 text-[1.9rem]">The build</h2>
+      <p class="mt-2 muted text-[0.95rem]">Click a photo to view it full size.</p>
+      <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4" data-gallery>
+        <button type="button" class="project-shot shot aspect-[4/3]"
+                data-full="../assets/img/projects/iot-air-purifier-circuit.jpg"
+                data-caption="Smart Air Purifier — system wiring diagram (ESP32, PM sensor, PIR, OLED, relay, fan)"
+                aria-label="View wiring diagram">
+          <img src="../assets/img/projects/thumbs/iot-air-purifier-circuit.jpg" alt="Circuit wiring diagram of the smart air purifier" loading="lazy" class="w-full h-full object-cover" />
+        </button>
+        <button type="button" class="project-shot shot aspect-[4/3]"
+                data-full="../assets/img/projects/iot-air-purifier-build.jpg"
+                data-caption="Smart Air Purifier — assembled prototype: 12V fan, ESP32, PM2.5 laser sensor, PIR sensor, OLED and relay module"
+                aria-label="View assembled prototype">
+          <img src="../assets/img/projects/thumbs/iot-air-purifier-build.jpg" alt="Assembled smart air purifier hardware" loading="lazy" class="w-full h-full object-cover" />
+        </button>
+        <button type="button" class="project-shot shot aspect-[4/3]"
+                data-full="../assets/img/projects/iot-air-purifier-oled-idle.jpg"
+                data-caption="Live OLED readout — clean air (AQI: GOOD), no person detected, fan off"
+                aria-label="View OLED readout, idle state">
+          <img src="../assets/img/projects/thumbs/iot-air-purifier-oled-idle.jpg" alt="OLED showing good air quality and no person detected" loading="lazy" class="w-full h-full object-cover" />
+        </button>
+        <button type="button" class="project-shot shot aspect-[4/3]"
+                data-full="../assets/img/projects/iot-air-purifier-oled-active.jpg"
+                data-caption="Live OLED readout — person detected (Human: YES), moderate air quality reading"
+                aria-label="View OLED readout, active state">
+          <img src="../assets/img/projects/thumbs/iot-air-purifier-oled-active.jpg" alt="OLED showing person detected and moderate air quality" loading="lazy" class="w-full h-full object-cover" />
+        </button>
+      </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-rule">
+    <div class="max-w-content mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-sm muted">
+      <p>© 2026 Kitti Treevichien</p>
+      <p>Built with HTML and Tailwind CSS. Formulas typeset with LaTeX.</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="hidden fixed inset-0 z-50 p-4 sm:p-8 flex-col items-center justify-center" style="background: rgb(17 22 33 / 0.86); backdrop-filter: blur(4px);" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button id="lbClose" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/15 text-white hover:bg-white/25" aria-label="Close viewer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button id="lbPrev" class="hidden absolute left-2 sm:left-5 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-white/15 text-white hover:bg-white/25" aria-label="Previous image">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button id="lbNext" class="hidden absolute right-2 sm:right-5 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-white/15 text-white hover:bg-white/25" aria-label="Next image">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <img id="lbImg" src="" alt="" class="max-w-full max-h-[80vh] rounded-md bg-white" />
+    <div class="mt-4 text-center">
+      <p id="lbTitle" class="text-white font-medium text-sm sm:text-base max-w-2xl mx-auto px-10"></p>
+      <p id="lbCount" class="text-white/60 text-xs mt-1"></p>
+      <a id="lbPdf" href="#" target="_blank" rel="noopener" class="hidden mt-1 inline-block text-xs underline underline-offset-4" style="color: #a9b9ff">Open the original PDF</a>
+    </div>
+  </div>
+
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>

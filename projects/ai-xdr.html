@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Enhanced XDR — Kitti Treevichien</title>
+  <meta name="description" content="AI-Enhanced XDR: behavioural anomaly detection on top of Wazuh's rules, with NVIDIA Morpheus on an H100 and a SOC console. Senior project by Kitti Treevichien." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tw-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+  <svg width="0" height="0" class="absolute" style="color: var(--ink)" aria-hidden="true">
+    <defs>
+      <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1" />
+      </pattern>
+    </defs>
+    <symbol id="m-diamond" viewBox="0 0 40 40"><path d="M20 2 38 20 20 38 2 20Z" fill="none" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke" /></symbol>
+    <symbol id="m-hatch" viewBox="0 0 40 40"><rect x="5" y="5" width="30" height="30" fill="url(#hatch)" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke" /></symbol>
+    <symbol id="m-cube" viewBox="0 0 40 40"><path d="M20 3 34.7 11.5 34.7 28.5 20 37 5.3 28.5 5.3 11.5Z M20 20 5.3 11.5 M20 20 34.7 11.5 M20 20 20 37" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke" /></symbol>
+  </svg>
+
+  <header class="sticky top-0 z-40 border-b border-rule" style="background: rgb(247 249 251 / 0.88); backdrop-filter: blur(8px);">
+    <nav class="max-w-content mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+      <a href="../index.html" class="flex items-center gap-2.5 font-serif text-lg font-semibold text-graphite">
+        <svg class="w-3.5 h-3.5 text-ink" viewBox="0 0 40 40" aria-hidden="true"><use href="#m-diamond" /></svg>
+        Kitti Treevichien
+      </a>
+      <ul class="hidden md:flex items-center gap-7 text-[0.95rem]">
+        <li><a href="../index.html#about" class="hover:text-ink">About</a></li>
+        <li><a href="../index.html#skills" class="hover:text-ink">Skills</a></li>
+        <li><a href="../index.html#projects" class="hover:text-ink">Projects</a></li>
+        <li><a href="../index.html#certifications" class="hover:text-ink">Certifications</a></li>
+        <li><a href="../index.html#activities" class="hover:text-ink">Activities</a></li>
+        <li><a href="../index.html#contact" class="text-ink hover:text-ink-deep">Contact</a></li>
+      </ul>
+      <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-sheet" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-rule bg-paper">
+      <ul class="px-4 py-3 space-y-1">
+        <li><a href="../index.html#about" class="block px-3 py-2 rounded-md hover:bg-sheet">About</a></li>
+        <li><a href="../index.html#skills" class="block px-3 py-2 rounded-md hover:bg-sheet">Skills</a></li>
+        <li><a href="../index.html#projects" class="block px-3 py-2 rounded-md hover:bg-sheet">Projects</a></li>
+        <li><a href="../index.html#certifications" class="block px-3 py-2 rounded-md hover:bg-sheet">Certifications</a></li>
+        <li><a href="../index.html#activities" class="block px-3 py-2 rounded-md hover:bg-sheet">Activities</a></li>
+        <li><a href="../index.html#contact" class="block px-3 py-2 rounded-md hover:bg-sheet text-ink">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <article class="with-margins max-w-content mx-auto px-4 sm:px-6 pt-10 pb-24">
+      <img class="margin formula left" data-depth="0.08" data-rot="-1.5" style="top: 14rem" src="../assets/formulas/iforest.svg" alt="" />
+      <img class="margin formula right" data-depth="0.1" data-rot="1.5" style="top: 46rem" src="../assets/formulas/recon.svg" alt="" />
+      <svg class="margin mark right" data-depth="0.16" data-rot="45" style="top: 6rem; width: 42px; height: 42px; margin-left: 6rem"><use href="#m-hatch" /></svg>
+      <svg class="margin mark faint left" data-depth="0.2" style="top: 60rem; width: 34px; height: 34px; margin-right: 5rem"><use href="#m-cube" /></svg>
+
+      <a href="../index.html#projects" class="ink-link text-[0.95rem]">All projects</a>
+
+      <p class="kind mt-10"><strong>Senior project</strong>, CS497&ndash;498 at Bangkok University, sponsored by SIAM AI Cloud, completed 2026</p>
+      <h1 class="mt-3 text-[2.6rem] sm:text-[3.6rem]">AI-Enhanced XDR</h1>
+      <p class="mt-4 font-serif text-[1.35rem] sm:text-[1.5rem] leading-snug prose">
+        Behavioural AI on top of Wazuh's rules, built to catch the attacks that stay under rule thresholds.
+      </p>
+      <p class="mt-5"><a href="https://github.com/tecchuuu/ai-enhanced-xdr" target="_blank" rel="noopener" class="ink-link">Code on GitHub</a></p>
+
+      <!-- how it fits together -->
+      <figure class="mt-12 sheet p-4 sm:p-6">
+        <div class="overflow-x-auto">
+          <svg class="diagram w-full min-w-[760px]" viewBox="0 0 1000 350" role="img" aria-labelledby="dgTitle dgDesc">
+            <title id="dgTitle">How AI-Enhanced XDR fits together</title>
+            <desc id="dgDesc">Logs from the monitored host go to Wazuh, which applies its rules and archives every event. Wazuh's rule alerts go straight to OpenSearch. Filebeat streams the archive into Kafka, and the AI detectors, Isolation Forest on the CPU and NVIDIA Morpheus DFP on the H100, read the stream and write their detections to OpenSearch beside the rule alerts. The SOC console shows both, a local LLM explains each detection, and a block only goes back to the host through Wazuh after an analyst confirms it.</desc>
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+                <path d="M2 1.6 8.6 5 2 8.4" />
+              </marker>
+            </defs>
+
+            <g class="node box" style="--delay: 0s"><rect x="10" y="60" width="138" height="78" rx="6" />
+              <text class="name" x="79" y="92" text-anchor="middle">Monitored host</text>
+              <text class="sub" x="79" y="113" text-anchor="middle">SSH and web logs</text></g>
+            <g class="node box" style="--delay: .15s"><rect x="176" y="60" width="138" height="78" rx="6" />
+              <text class="name" x="245" y="92" text-anchor="middle">Wazuh</text>
+              <text class="sub" x="245" y="111" text-anchor="middle">its rules, and an</text>
+              <text class="sub" x="245" y="126" text-anchor="middle">archive of every event</text></g>
+            <g class="node box" style="--delay: .3s"><rect x="342" y="60" width="138" height="78" rx="6" />
+              <text class="name" x="411" y="92" text-anchor="middle">Kafka</text>
+              <text class="sub" x="411" y="111" text-anchor="middle">the event stream,</text>
+              <text class="sub" x="411" y="126" text-anchor="middle">fed by Filebeat</text></g>
+            <g class="node ai box" style="--delay: .45s"><rect x="508" y="60" width="138" height="78" rx="6" />
+              <text class="name" x="577" y="92" text-anchor="middle">AI detectors</text>
+              <text class="sub" x="577" y="111" text-anchor="middle">Isolation Forest (CPU)</text>
+              <text class="sub" x="577" y="126" text-anchor="middle">Morpheus DFP (H100)</text></g>
+            <g class="node box" style="--delay: .6s"><rect x="674" y="60" width="138" height="78" rx="6" />
+              <text class="name" x="743" y="92" text-anchor="middle">OpenSearch</text>
+              <text class="sub" x="743" y="111" text-anchor="middle">rule alerts and</text>
+              <text class="sub" x="743" y="126" text-anchor="middle">AI detections</text></g>
+            <g class="node box" style="--delay: .75s"><rect x="840" y="60" width="138" height="78" rx="6" />
+              <text class="name" x="909" y="92" text-anchor="middle">SOC console</text>
+              <text class="sub" x="909" y="111" text-anchor="middle">why it fired,</text>
+              <text class="sub" x="909" y="126" text-anchor="middle">triage, block</text></g>
+            <g class="node box" style="--delay: .9s"><rect x="674" y="200" width="222" height="58" rx="6" />
+              <text class="name" x="785" y="224" text-anchor="middle">Local LLM</text>
+              <text class="sub" x="785" y="244" text-anchor="middle">Gemma 3 on the H100</text></g>
+
+            <!-- the main path -->
+            <path class="wire draw" style="--delay: .2s" d="M151 99H173" marker-end="url(#arrow)" />
+            <path class="wire draw" style="--delay: .35s" d="M317 99H339" marker-end="url(#arrow)" />
+            <path class="wire draw" style="--delay: .5s" d="M483 99H505" marker-end="url(#arrow)" />
+            <path class="wire draw" style="--delay: .65s" d="M649 99H671" marker-end="url(#arrow)" />
+            <path class="wire draw" style="--delay: .8s" d="M815 99H837" marker-end="url(#arrow)" />
+            <!-- rule alerts skip the AI and go straight to OpenSearch -->
+            <path class="wire draw" style="--delay: .4s" d="M245 57C245 18 743 18 743 55" marker-end="url(#arrow)" />
+            <text class="small" x="494" y="20" text-anchor="middle">rule alerts</text>
+            <!-- the LLM explains detections in the console -->
+            <path class="wire draw" style="--delay: 1s" d="M870 197V142" marker-end="url(#arrow)" />
+            <text class="small" x="878" y="176">explains</text>
+            <!-- the way back: a block, only after an analyst confirms it -->
+            <path class="wire draw" style="--delay: 1.2s" d="M944 141V300Q944 314 930 314H93Q79 314 79 300V142" marker-end="url(#arrow)" />
+            <text class="label" x="511" y="340" text-anchor="middle">a block goes back only after an analyst confirms it, through Wazuh's active response</text>
+          </svg>
+        </div>
+      </figure>
+
+      <div class="mt-14 grid lg:grid-cols-[minmax(0,1fr)_19rem] gap-12">
+        <div>
+          <h2 class="text-[1.9rem]">What it does</h2>
+          <div class="mt-4 prose">
+            <p>Signature rules catch attacks that cross a threshold. This project catches the ones that stay under it.
+              Every event from the monitored host streams through Apache Kafka to anomaly-detection models, including
+              NVIDIA Morpheus's DFP on an H100 GPU, and lands next to Wazuh's alerts in a SOC console I built. The
+              console shows why each detection fired, has a local LLM to explain it, supports analyst triage, and blocks
+              an IP only after a human confirms it.</p>
+          </div>
+
+          <h2 class="mt-12 text-[1.9rem]">What it found</h2>
+          <div class="mt-4 prose">
+            <p>Tested with live attacks, a public labelled dataset and my own lab data, the AI caught brute force spread
+              across many addresses, which Wazuh's standard alert level missed. Only NVIDIA's model reliably caught
+              password guessing slowed to one attempt every few minutes.</p>
+            <p>Rules still win on single crafted requests, like one SQL injection. So the answer is both, not one
+              instead of the other.</p>
+          </div>
+
+          <h2 class="mt-12 text-[1.9rem]">How it's built</h2>
+          <ul class="diamonds mt-5 space-y-3 prose">
+            <li>Wazuh collects SSH and web logs and archives every event, not just the ones a rule matches, so the models also learn what normal looks like.</li>
+            <li>Filebeat streams that archive into Kafka, and each detector reads the full stream on its own.</li>
+            <li>Three swappable models score one-minute windows: Isolation Forest, a PyTorch autoencoder, and Morpheus DFP running as a Morpheus pipeline on the H100.</li>
+            <li>The console (FastAPI and React) shows Wazuh alerts and AI detections side by side, explains each detection, and records every triage decision and block.</li>
+            <li>A local LLM, Gemma 3 on Ollama, writes the explanations, so no log data leaves the machine.</li>
+            <li>Everything runs as containers started by one command.</li>
+          </ul>
+        </div>
+
+        <aside class="space-y-5 lg:pt-1">
+          <div class="sheet p-6">
+            <h3 class="text-lg">My role</h3>
+            <p class="mt-2 text-[0.95rem] muted">I built the detection pipeline, the three models and their evaluation, the SOC console, and the deployment on SIAM AI Cloud's H100.</p>
+          </div>
+          <div class="sheet p-6">
+            <h3 class="text-lg">Built with</h3>
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              <span class="tag">Wazuh</span><span class="tag">Apache Kafka</span><span class="tag">NVIDIA Morpheus</span>
+              <span class="tag">PyTorch</span><span class="tag">scikit-learn</span><span class="tag">OpenSearch</span>
+              <span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Ollama</span><span class="tag">Docker</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <h2 class="mt-16 text-[1.9rem]">The console</h2>
+      <p class="mt-2 muted text-[0.95rem]">Click a screenshot to view it full size.</p>
+      <div class="mt-6 grid sm:grid-cols-2 gap-4" data-gallery>
+        <button type="button" class="project-shot shot sm:col-span-2" data-full="../assets/img/projects/ai-xdr-overview.png"
+                data-caption="Overview: Wazuh's rule alerts (blue) and the AI's detections (purple) side by side, with the minutes only the AI flagged"
+                aria-label="View the console's Overview page">
+          <img src="../assets/img/projects/ai-xdr-overview.png" alt="The console's Overview: alert counts, alerts over time and top source IPs" loading="lazy" class="w-full h-auto" />
+        </button>
+        <button type="button" class="project-shot shot" data-full="../assets/img/projects/ai-xdr-why.png"
+                data-caption="Why it fired: each detection shows its score against the cutoff and which measures were unusual for that minute"
+                aria-label="View the Why it fired panel">
+          <img src="../assets/img/projects/ai-xdr-why.png" alt="The Why it fired panel for a brute-force detection" loading="lazy" class="w-full aspect-[4/3] object-cover object-top" />
+        </button>
+        <button type="button" class="project-shot shot" data-full="../assets/img/projects/ai-xdr-split.png"
+                data-caption="Rules vs AI: where Wazuh and the models agree, and the minutes only the AI flagged"
+                aria-label="View the Rules vs AI page">
+          <img src="../assets/img/projects/ai-xdr-split.png" alt="The Rules vs AI page comparing rule alerts and AI detections" loading="lazy" class="w-full aspect-[4/3] object-cover object-top" />
+        </button>
+      </div>
+
+      <h2 class="mt-16 text-[1.9rem]">Where it started</h2>
+      <div class="mt-5 grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-8 items-start">
+        <p class="prose muted">The poster from IT Empowering Day in May 2026, when this was still a plan. The finished system
+          kept the core (Wazuh, Kafka and Morpheus) but changed one decision on purpose: blocking is never automatic,
+          because anomaly models raise false alarms and an automatic block would lock out real users.</p>
+        <div data-gallery>
+          <button type="button" class="project-shot shot max-w-md" data-full="../assets/img/projects/cs497-edr-xdr-poster.jpg"
+                  data-caption="The CS497 senior project poster, May 2026 (team members redacted)" aria-label="View the project poster">
+            <img src="../assets/img/projects/thumbs/cs497-edr-xdr-poster.jpg" alt="The CS497 project poster: architecture and tech stack as planned" loading="lazy" class="w-full h-auto" />
+          </button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-rule">
+    <div class="max-w-content mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-sm muted">
+      <p>© 2026 Kitti Treevichien</p>
+      <p>Built with HTML and Tailwind CSS. Formulas typeset with LaTeX.</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="hidden fixed inset-0 z-50 p-4 sm:p-8 flex-col items-center justify-center" style="background: rgb(17 22 33 / 0.86); backdrop-filter: blur(4px);" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button id="lbClose" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/15 text-white hover:bg-white/25" aria-label="Close viewer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button id="lbPrev" class="hidden absolute left-2 sm:left-5 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-white/15 text-white hover:bg-white/25" aria-label="Previous image">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button id="lbNext" class="hidden absolute right-2 sm:right-5 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-white/15 text-white hover:bg-white/25" aria-label="Next image">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <img id="lbImg" src="" alt="" class="max-w-full max-h-[80vh] rounded-md bg-white" />
+    <div class="mt-4 text-center">
+      <p id="lbTitle" class="text-white font-medium text-sm sm:text-base max-w-2xl mx-auto px-10"></p>
+      <p id="lbCount" class="text-white/60 text-xs mt-1"></p>
+      <a id="lbPdf" href="#" target="_blank" rel="noopener" class="hidden mt-1 inline-block text-xs underline underline-offset-4" style="color: #a9b9ff">Open the original PDF</a>
+    </div>
+  </div>
+
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>
